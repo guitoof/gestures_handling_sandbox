@@ -24,15 +24,10 @@ class _SanboxAppState extends State<SanboxApp> {
       'icon': Icon(Icons.line_style_outlined)
     },
     {
-      'widget': GestureDetectorExamplePage(),
-      'name': 'GestureDetector',
-      'icon': Icon(Icons.line_style_outlined)
+      'widget': RawGestureDetectorExamplePage(),
+      'name': 'RawGestureDetector',
+      'icon': Icon(Icons.gesture)
     },
-    // {
-    //   'widget': RawGestureDetectorExamplePage(),
-    //   'name': 'RawGestureDetector',
-    //   'icon': Icon(Icons.gesture)
-    // },
     // {
     //   'widget': ListenerExamplePage(),
     //   'name': 'Listener',
