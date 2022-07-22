@@ -3,7 +3,15 @@ import 'package:gestures_handling_sandbox/widgets/demo_page.dart';
 import 'package:gestures_handling_sandbox/widgets/detected_gesture_dialog.dart';
 import 'package:gestures_handling_sandbox/widgets/square.dart';
 
-const double _squareSize = 200;
+class SquareData {
+  final double size;
+  final Color color;
+
+  const SquareData({required this.size, required this.color});
+}
+
+const SquareData parentSquare = SquareData(size: 200, color: Colors.red);
+const SquareData childSquare = SquareData(size: 100, color: Colors.blue);
 
 class ParentChildDisambiguationPage extends StatefulWidget {
   const ParentChildDisambiguationPage({Key? key}) : super(key: key);
@@ -24,36 +32,32 @@ class _ParentChildDisambiguationPageState
       child: Stack(
         children: [
           DemoPage(
-            demoSquareSize: _squareSize,
+            demoSquareSize: parentSquare.size,
             demoSquarePosition: Offset(horizontalOffset, verticalOffset),
             child: GestureDetector(
-              onTap: () => showDetectedGestureDialog('Tap',
-                  from: 'GestureDetector', context: context),
-              onDoubleTap: () => showDetectedGestureDialog('Double Tap',
-                  from: 'GestureDetector', context: context),
-              onLongPress: () => showDetectedGestureDialog('Long Press',
-                  from: 'GestureDetector', context: context),
-              onHorizontalDragUpdate: (details) => setState(() {
-                horizontalOffset += details.delta.dx;
-              }),
-              onHorizontalDragEnd: (_) {
-                setState(() {
-                  horizontalOffset = 0.0;
-                });
-                showDetectedGestureDialog('Horizontal Drag',
-                    from: 'GestureDetector', context: context);
-              },
-              onVerticalDragUpdate: (details) => setState(() {
-                verticalOffset += details.delta.dy;
-              }),
-              onVerticalDragEnd: (_) {
-                setState(() {
-                  verticalOffset = 0.0;
-                });
-                showDetectedGestureDialog('Vertical Drag',
-                    from: 'GestureDetector', context: context);
-              },
-              child: const Square(size: _squareSize),
+              onTap: () => showDetectedGestureDialog(
+                'Tap',
+                from: 'Parent',
+                color: parentSquare.color,
+                context: context,
+              ),
+              child: Square(
+                size: parentSquare.size,
+                color: parentSquare.color,
+                child: Center(
+                    child: GestureDetector(
+                  onTap: () => showDetectedGestureDialog(
+                    'Tap',
+                    from: 'Child',
+                    color: childSquare.color,
+                    context: context,
+                  ),
+                  child: Square(
+                    size: childSquare.size,
+                    color: childSquare.color,
+                  ),
+                )),
+              ),
             ),
           ),
         ],
