@@ -33,7 +33,6 @@ class _ParentChildDisambiguationPageState
         children: [
           DemoPage(
             demoSquareSize: parentSquare.size,
-            demoSquarePosition: Offset(horizontalOffset, verticalOffset),
             child: GestureDetector(
               onTap: () => showDetectedGestureDialog(
                 'Tap',
