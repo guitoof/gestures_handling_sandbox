@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestures_handling_sandbox/widgets/translucent_colored_box.dart';
 
 class Square extends StatelessWidget {
   final double size;
@@ -11,11 +12,12 @@ class Square extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color,
-      width: size,
-      height: size,
-      child: child,
+    return SizedBox.square(
+      dimension: size,
+      child: TranslucentColoredBox(
+        color: color,
+        child: child,
+      ),
     );
   }
 }

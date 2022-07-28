@@ -28,11 +28,14 @@ class _RawGestureDetectorExamplePageState
             demoSquareSize: _squareSize,
             demoSquarePosition: Offset(horizontalOffset, verticalOffset),
             child: RawGestureDetector(
+              behavior: HitTestBehavior.translucent,
               gestures: {
-                TapGestureRecognizer: GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(
+                TapGestureRecognizer:
+                    GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(
                   () => TapGestureRecognizer(),
                   (TapGestureRecognizer instance) {
-                    instance.onTap = () => showDetectedGestureDialog('Tap', from: 'RawGestureDetector', context: context, );
+                    instance.onTap = () => showDetectedGestureDialog('Tap',
+                        from: 'RawGestureDetector', context: context);
                   },
                 )
               },

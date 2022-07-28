@@ -27,32 +27,35 @@ class _GestureDetectorExamplePageState
             demoSquareSize: _squareSize,
             demoSquarePosition: Offset(horizontalOffset, verticalOffset),
             child: GestureDetector(
-                onTap: () => showDetectedGestureDialog('Tap', from: 'GestureDetector',context: context),
-                onDoubleTap: () =>
-                    showDetectedGestureDialog('Double Tap', from: 'GestureDetector', context: context),
-                onLongPress: () =>
-                    showDetectedGestureDialog('Long Press', from: 'GestureDetector', context: context),
-                onHorizontalDragUpdate: (details) => setState(() {
-                  horizontalOffset += details.delta.dx;
-                }),
-                onHorizontalDragEnd: (_) {
-                  setState(() {
-                    horizontalOffset = 0.0;
-                  });
-                  showDetectedGestureDialog('Horizontal Drag', from: 'GestureDetector', context: context);
-                },
-                onVerticalDragUpdate: (details) => setState(() {
-                  verticalOffset += details.delta.dy;
-                }),
-                onVerticalDragEnd: (_) {
-                  setState(() {
-                    verticalOffset = 0.0;
-                  });
-                  showDetectedGestureDialog('Vertical Drag', from: 'GestureDetector', context: context);
-                },
-                child: const Square(size: _squareSize),
-              ),
-            
+              behavior: HitTestBehavior.translucent,
+              onTap: () => showDetectedGestureDialog('Tap',
+                  from: 'GestureDetector', context: context),
+              onDoubleTap: () => showDetectedGestureDialog('Double Tap',
+                  from: 'GestureDetector', context: context),
+              onLongPress: () => showDetectedGestureDialog('Long Press',
+                  from: 'GestureDetector', context: context),
+              onHorizontalDragUpdate: (details) => setState(() {
+                horizontalOffset += details.delta.dx;
+              }),
+              onHorizontalDragEnd: (_) {
+                setState(() {
+                  horizontalOffset = 0.0;
+                });
+                showDetectedGestureDialog('Horizontal Drag',
+                    from: 'GestureDetector', context: context);
+              },
+              onVerticalDragUpdate: (details) => setState(() {
+                verticalOffset += details.delta.dy;
+              }),
+              onVerticalDragEnd: (_) {
+                setState(() {
+                  verticalOffset = 0.0;
+                });
+                showDetectedGestureDialog('Vertical Drag',
+                    from: 'GestureDetector', context: context);
+              },
+              child: const Square(size: _squareSize),
+            ),
           ),
         ],
       ),
