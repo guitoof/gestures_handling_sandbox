@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestures_handling_sandbox/modules/basic_demo/basic_demo.dart';
 import 'package:gestures_handling_sandbox/modules/disambiguation_demo/disambiguation_demo.dart';
+import 'package:gestures_handling_sandbox/modules/disambiguation_demo/pages/listener_disambiguation_page.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -13,12 +14,12 @@ class _AppState extends State<App> {
   static const _sections = {
     'basicGestureDetectionDemo': {
       'title': 'Basic Gesture Detection',
-      'icon': Icon(Icons.gesture),
+      'icon': Icon(Icons.swipe_left),
       'pages': [
         {
           'widget': GestureDetectorExamplePage(),
           'name': 'GestureDetector',
-          'icon': Icon(Icons.line_style_outlined)
+          'icon': Icon(Icons.swipe_down)
         },
         {
           'widget': RawGestureDetectorExamplePage(),
@@ -28,13 +29,13 @@ class _AppState extends State<App> {
         {
           'widget': ListenerExamplePage(),
           'name': 'Listener',
-          'icon': Icon(Icons.moving_sharp)
+          'icon': Icon(Icons.swipe_right_alt)
         },
       ]
     },
     'disambiguationDemo': {
       'title': 'Disambiguation',
-      'icon': Icon(Icons.account_balance_wallet),
+      'icon': Icon(Icons.line_style),
       'pages': [
         {
           'widget': ParentChildDisambiguationPage(),
