@@ -16,6 +16,7 @@ class _SanboxAppState extends State<SanboxApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Understanding Flutter\'s handling of Gestures',
       home: App(),
     );
