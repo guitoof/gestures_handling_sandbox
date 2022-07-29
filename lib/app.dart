@@ -46,6 +46,11 @@ class _AppState extends State<App> {
           'name': 'Stacked Disambiguation',
           'icon': Icon(Icons.filter_none)
         },
+        {
+          'widget': ListenerDisambiguationPage(),
+          'name': 'Listener Disambiguation',
+          'icon': Icon(Icons.flip_to_back)
+        },
       ]
     }
   };
