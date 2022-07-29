@@ -25,11 +25,11 @@ class _AppState extends State<App> {
           'name': 'RawGestureDetector',
           'icon': Icon(Icons.gesture)
         },
-        // {
-        //   'widget': ListenerExamplePage(),
-        //   'name': 'Listener',
-        //   'icon': Icon(Icons.moving_sharp)
-        // },
+        {
+          'widget': ListenerExamplePage(),
+          'name': 'Listener',
+          'icon': Icon(Icons.moving_sharp)
+        },
       ]
     },
     'disambiguationDemo': {
