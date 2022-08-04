@@ -38,21 +38,25 @@ class _GestureDetectorExamplePageState
                 horizontalOffset += details.delta.dx;
               }),
               onHorizontalDragEnd: (_) {
+                showDetectedGestureDialog(
+                    '${horizontalOffset > 0 ? '⏩' : '⏪'} Horizontal Drag',
+                    from: 'GestureDetector',
+                    context: context);
                 setState(() {
                   horizontalOffset = 0.0;
                 });
-                showDetectedGestureDialog('Horizontal Drag',
-                    from: 'GestureDetector', context: context);
               },
               onVerticalDragUpdate: (details) => setState(() {
                 verticalOffset += details.delta.dy;
               }),
               onVerticalDragEnd: (_) {
+                showDetectedGestureDialog(
+                    '${verticalOffset > 0 ? '⏬' : '⏫'} Vertical Drag',
+                    from: 'GestureDetector',
+                    context: context);
                 setState(() {
                   verticalOffset = 0.0;
                 });
-                showDetectedGestureDialog('Vertical Drag',
-                    from: 'GestureDetector', context: context);
               },
               child: const Square(size: _squareSize),
             ),
