@@ -6,8 +6,8 @@ import 'package:gestures_handling_sandbox/widgets/square.dart';
 
 const double _squareSize = 200;
 
-const SquareData backSquare = SquareData(size: 200, color: Colors.purple);
-const SquareData frontSquare = SquareData(size: 100, color: Colors.amber);
+const ShapeData backSquare = ShapeData(size: 200, color: Colors.purple);
+const ShapeData frontSquare = ShapeData(size: 100, color: Colors.amber);
 
 class StackedDisambiguationPage extends StatefulWidget {
   const StackedDisambiguationPage({Key? key}) : super(key: key);
@@ -30,9 +30,9 @@ class _StackedDisambiguationPageState extends State<StackedDisambiguationPage> {
             demoSquareSize: _squareSize,
             demoSquarePosition: Offset(horizontalOffset, verticalOffset),
             child: Stack(children: [
-              GestureDetector(
-                behavior: HitTestBehavior.deferToChild,
-                onTap: () => showDetectedGestureDialog(
+              Listener(
+                behavior: HitTestBehavior.opaque,
+                onPointerDown: (event) => showDetectedGestureDialog(
                   'Tap',
                   from: 'Back',
                   color: backSquare.color,
@@ -43,9 +43,9 @@ class _StackedDisambiguationPageState extends State<StackedDisambiguationPage> {
                   color: backSquare.color,
                 ),
               ),
-              GestureDetector(
-                behavior: HitTestBehavior.deferToChild,
-                onTap: () => showDetectedGestureDialog(
+              Listener(
+                behavior: HitTestBehavior.opaque,
+                onPointerDown: (event) => showDetectedGestureDialog(
                   'Tap',
                   from: 'Front',
                   color: frontSquare.color,

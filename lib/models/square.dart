@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class SquareData {
+class ShapeData {
   final double size;
   final Color color;
 
-  const SquareData({required this.size, required this.color});
+  const ShapeData({required this.size, required this.color});
 }

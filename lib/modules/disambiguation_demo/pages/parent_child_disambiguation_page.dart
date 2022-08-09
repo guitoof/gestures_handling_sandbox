@@ -4,8 +4,8 @@ import 'package:gestures_handling_sandbox/widgets/demo_page.dart';
 import 'package:gestures_handling_sandbox/widgets/detected_gesture_dialog.dart';
 import 'package:gestures_handling_sandbox/widgets/square.dart';
 
-const SquareData parentSquare = SquareData(size: 200, color: Colors.red);
-const SquareData childSquare = SquareData(size: 100, color: Colors.blue);
+const ShapeData parentSquare = ShapeData(size: 200, color: Colors.red);
+const ShapeData childSquare = ShapeData(size: 100, color: Colors.blue);
 
 class ParentChildDisambiguationPage extends StatefulWidget {
   const ParentChildDisambiguationPage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _ParentChildDisambiguationPageState
                 color: parentSquare.color,
                 context: context,
               ),
-              behavior: HitTestBehavior.deferToChild,
+              behavior: HitTestBehavior.opaque,
               child: Square(
                 size: parentSquare.size,
                 color: parentSquare.color,
@@ -46,7 +46,7 @@ class _ParentChildDisambiguationPageState
                       color: childSquare.color,
                       context: context,
                     ),
-                    behavior: HitTestBehavior.deferToChild,
+                    behavior: HitTestBehavior.translucent,
                     child: Square(
                       size: childSquare.size,
                       color: childSquare.color,

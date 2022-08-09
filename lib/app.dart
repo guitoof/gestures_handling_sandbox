@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestures_handling_sandbox/modules/basic_demo/basic_demo.dart';
 import 'package:gestures_handling_sandbox/modules/disambiguation_demo/disambiguation_demo.dart';
 import 'package:gestures_handling_sandbox/modules/disambiguation_demo/pages/listener_disambiguation_page.dart';
+import 'package:gestures_handling_sandbox/modules/multiple_handlers_demo/multiple_handlers_demo.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -50,6 +51,22 @@ class _AppState extends State<App> {
         {
           'widget': ListenerDisambiguationPage(),
           'name': 'Listener Disambiguation',
+          'icon': Icon(Icons.flip_to_back)
+        },
+      ]
+    },
+    'multipleHandlers': {
+      'title': 'Multiple Handlers',
+      'icon': Icon(Icons.multiline_chart),
+      'pages': [
+        {
+          'widget': MultipleHandlersWithListenerPage(),
+          'name': 'Multiple Handlers with Parent-Child Listeners',
+          'icon': Icon(Icons.flip_to_back)
+        },
+        {
+          'widget': MultipleHandlersWithListenerPage(),
+          'name': 'Multiple Handlers with Stacked Listeners',
           'icon': Icon(Icons.flip_to_back)
         },
       ]
