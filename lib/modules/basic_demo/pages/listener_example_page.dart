@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gestures_handling_sandbox/widgets/square.dart';
 
-const double _squareSize = 30;
+const double _squareSize = 60;
 
 class ListenerExamplePage extends StatefulWidget {
   const ListenerExamplePage({Key? key}) : super(key: key);
@@ -26,13 +25,23 @@ class _ListenerExamplePageState extends State<ListenerExamplePage> {
         onPointerUp: (event) => setState(() {
           pointerPosition = null;
         }),
+        onPointerHover: (event) {},
+        onPointerSignal: (event) {},
+        onPointerCancel: (event) {},
         behavior: HitTestBehavior.opaque,
       ),
       if (pointerPosition != null)
         Positioned(
-          top: pointerPosition!.dy,
-          left: pointerPosition!.dx,
-          child: const Square(size: _squareSize),
+          top: pointerPosition!.dy - _squareSize / 2,
+          left: pointerPosition!.dx - _squareSize / 2,
+          child: Container(
+            width: _squareSize,
+            height: _squareSize,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.amber,
+            ),
+          ),
         )
     ]);
   }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestures_handling_sandbox/widgets/detected_gesture_dialog.dart';
-import 'package:gestures_handling_sandbox/widgets/square.dart';
 
-const double _squareSize = 30;
+const double _squareSize = 60;
 
 class MultipleHandlersWithListenerPage extends StatefulWidget {
   const MultipleHandlersWithListenerPage({Key? key}) : super(key: key);
@@ -50,9 +49,16 @@ class MultipleHandlersWithListenerPageState
       ),
       if (pointerPosition != null)
         Positioned(
-          top: pointerPosition!.dy,
-          left: pointerPosition!.dx,
-          child: const Square(size: _squareSize, color: Colors.amber),
+          top: pointerPosition!.dy - _squareSize / 2,
+          left: pointerPosition!.dx - _squareSize / 2,
+          child: Container(
+            width: _squareSize,
+            height: _squareSize,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.amber,
+            ),
+          ),
         )
     ]);
   }
