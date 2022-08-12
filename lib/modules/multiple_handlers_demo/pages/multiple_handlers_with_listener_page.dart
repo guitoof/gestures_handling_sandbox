@@ -34,10 +34,9 @@ class MultipleHandlersWithListenerPageState
             context: context,
           );
         }),
-        behavior: HitTestBehavior.translucent,
-        child: Center(
-          child: ElevatedButton(
-            child: const Text('Tap'),
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.add_circle_rounded, size: 36),
             onPressed: () => showDetectedGestureDialog(
               'Tap',
               from: 'Button',
