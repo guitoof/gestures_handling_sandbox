@@ -98,6 +98,7 @@ class _AppState extends State<App> {
                     leading: section['icon'] as Icon,
                     onTap: () {
                       setState(() {
+                        currentPageIndex = 0; // Reset page index
                         currentSectionKey = sectionKey;
                       });
                       Navigator.pop(context);
