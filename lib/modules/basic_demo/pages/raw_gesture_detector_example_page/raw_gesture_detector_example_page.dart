@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gestures_handling_sandbox/modules/basic_demo/pages/raw_gesture_detector_example_page/triple_tap_gesture_recognizer.dart';
 import 'package:gestures_handling_sandbox/widgets/demo_page.dart';
+import 'package:gestures_handling_sandbox/widgets/detected_gesture_dialog.dart';
 import 'package:gestures_handling_sandbox/widgets/square.dart';
 import 'package:gestures_handling_sandbox/modules/basic_demo/pages/raw_gesture_detector_example_page/rotation_gesture_recognizer.dart';
 
@@ -40,6 +42,18 @@ class _RawGestureDetectorExamplePageState
                       }));
                     },
                   (RotateGestureRecognizer instance) {},
+                ),
+                TripleTapGestureRecognizer:
+                    GestureRecognizerFactoryWithHandlers<
+                        TripleTapGestureRecognizer>(
+                  () => TripleTapGestureRecognizer()
+                    ..onTripleTap = () {
+                      showDetectedGestureDialog('👇👇👇 Triple Tap',
+                          from: 'RawGestureDetector',
+                          color: Colors.lightBlue,
+                          context: context);
+                    },
+                  (TripleTapGestureRecognizer instance) {},
                 )
               },
               child: Transform.rotate(
