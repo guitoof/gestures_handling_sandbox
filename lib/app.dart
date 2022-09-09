@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gestures_handling_sandbox/modules/basic_demo/basic_demo.dart';
 import 'package:gestures_handling_sandbox/modules/disambiguation_demo/disambiguation_demo.dart';
 import 'package:gestures_handling_sandbox/modules/disambiguation_demo/pages/listener_disambiguation_page.dart';
+import 'package:gestures_handling_sandbox/modules/lab/lab.dart';
 import 'package:gestures_handling_sandbox/modules/multiple_handlers_demo/multiple_handlers_demo.dart';
 
 class App extends StatefulWidget {
@@ -69,7 +71,18 @@ class _AppState extends State<App> {
           'name': 'Multiple Handlers with Stacked Listeners',
           'icon': Icon(Icons.flip_to_back)
         },
-      ]
+      ],
+    },
+    'lab': {
+      'title': 'Lab',
+      'icon': Icon(FontAwesomeIcons.flask),
+      'pages': [
+        {
+          'widget': LabPage(),
+          'name': 'Lab',
+          'icon': Icon(FontAwesomeIcons.flask)
+        },
+      ],
     }
   };
 
@@ -110,7 +123,10 @@ class _AppState extends State<App> {
               .toList(),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+          (_sections[currentSectionKey]!['pages'] as List).length == 1
+              ? null
+              : BottomNavigationBar(
         currentIndex: currentPageIndex,
         onTap: (tappedIndex) => setState(() {
           currentPageIndex = tappedIndex;
