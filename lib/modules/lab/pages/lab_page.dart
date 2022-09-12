@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hand_signature/signature.dart';
 
@@ -60,9 +61,17 @@ class _SignatureSectionState extends State<SignatureSection> {
       color: Colors.grey[200],
       height: 300,
       width: 300,
-      child: HandSignature(
-        control: control,
-        type: SignatureDrawType.shape,
+      child: RawGestureDetector(
+        gestures: {
+          EagerGestureRecognizer:
+              GestureRecognizerFactoryWithHandlers<EagerGestureRecognizer>(
+                  () => EagerGestureRecognizer(),
+                  (EagerGestureRecognizer instance) {})
+        },
+        child: HandSignature(
+          control: control,
+          type: SignatureDrawType.shape,
+        ),
       ),
     );
   }
