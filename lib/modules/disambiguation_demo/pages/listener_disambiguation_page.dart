@@ -3,6 +3,7 @@ import 'package:gestures_handling_sandbox/models/square.dart';
 import 'package:gestures_handling_sandbox/widgets/demo_page.dart';
 import 'package:gestures_handling_sandbox/widgets/detected_gesture_dialog.dart';
 import 'package:gestures_handling_sandbox/widgets/square.dart';
+import 'package:gestures_handling_sandbox/widgets/circle.dart';
 
 /// Code Example from: https://github.com/flutter/flutter/issues/74733#issuecomment-767859584
 ///
@@ -92,7 +93,7 @@ class _ListenerDisambiguationPageState
                         context: context,
                       ),
                       behavior: HitTestBehavior.opaque,
-                      child: Square(
+                      child: Circle(
                         size: shapeCircle.size,
                         color: shapeCircle.color,
                       ),
