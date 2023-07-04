@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   mocktail: ^0.3.0
   font_awesome_flutter: ^10.2.1
+  hand_signature: ^2.3.0+1
 
 dev_dependencies:
   flutter_test:
